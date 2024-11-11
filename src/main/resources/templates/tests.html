@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>English Verb Forms Test</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+
+        .container {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid #e0e0e0;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: 500;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        input[type="text"] {
+            width: 90%;
+            padding: 8px;
+            border: 2px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #2ecc71;
+            color: white;
+            padding: 12px 40px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>English Verb Forms Test</h1>
+    <form id="verbForm">
+        <table>
+            <thead>
+            <tr>
+                <th>Base Form</th>
+                <th>Gerund</th>
+                <th>Past Simple</th>
+                <th>Spanish</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><input type="text" name="base_1"></td>
+                <td><input type="text" name="gerund_1"></td>
+                <td><input type="text" name="past_1"></td>
+                <td><input type="text" name="spanish_1"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="base_2"></td>
+                <td><input type="text" name="gerund_2"></td>
+                <td><input type="text" name="past_2"></td>
+                <td><input type="text" name="spanish_2"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="base_3"></td>
+                <td><input type="text" name="gerund_3"></td>
+                <td><input type="text" name="past_3"></td>
+                <td><input type="text" name="spanish_3"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="base_4"></td>
+                <td><input type="text" name="gerund_4"></td>
+                <td><input type="text" name="past_4"></td>
+                <td><input type="text" name="spanish_4"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="base_5"></td>
+                <td><input type="text" name="gerund_5"></td>
+                <td><input type="text" name="past_5"></td>
+                <td><input type="text" name="spanish_5"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="base_6"></td>
+                <td><input type="text" name="gerund_6"></td>
+                <td><input type="text" name="past_6"></td>
+                <td><input type="text" name="spanish_6"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="base_7"></td>
+                <td><input type="text" name="gerund_7"></td>
+                <td><input type="text" name="past_7"></td>
+                <td><input type="text" name="spanish_7"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="base_8"></td>
+                <td><input type="text" name="gerund_8"></td>
+                <td><input type="text" name="past_8"></td>
+                <td><input type="text" name="spanish_8"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="base_9"></td>
+                <td><input type="text" name="gerund_9"></td>
+                <td><input type="text" name="past_9"></td>
+                <td><input type="text" name="spanish_9"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="base_10"></td>
+                <td><input type="text" name="gerund_10"></td>
+                <td><input type="text" name="past_10"></td>
+                <td><input type="text" name="spanish_10"></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="button-container">
+            <button type="submit">Submit Test</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('verbForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        const data = {};
+        for (let [key, value] of formData.entries()) {
+            data[key] = value;
+        }
+        console.log('Form data:', data);
+        alert('Form submitted successfully!');
+    });
+</script>
+</body>
+</html>

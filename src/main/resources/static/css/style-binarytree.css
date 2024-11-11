@@ -1,0 +1,113 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+/* Header styles */
+.header {
+    background-color: #333;
+    padding: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* Form styles */
+.input-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+input[type="number"] {
+    padding: 8px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Tree container styles */
+.tree-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    min-height: 500px;
+    position: relative;
+}
+
+/* Node styles */
+.node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.node-content {
+    width: 40px;
+    height: 40px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.node-children {
+    display: flex;
+    gap: 20px;
+    padding-top: 20px;
+    position: relative;
+}
+
+/* Line styles */
+.line {
+    position: absolute;
+    height: 20px;
+    border-left: 2px solid #666;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.line-left, .line-right {
+    position: absolute;
+    width: 50%;
+    height: 20px;
+    border-top: 2px solid #666;
+    top: -20px;
+}
+
+.line-left {
+    right: 50%;
+    border-left: 2px solid #666;
+}
+
+.line-right {
+    left: 50%;
+    border-right: 2px solid #666;
+}

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Tree Visualization</title>
+    <link rel="stylesheet" href="/css/style-binarytree.css">
+</head>
+<body>
+
+<div class="header">
+    <h1 style="color: white;">Binary Tree </h1>
+    <div>
+        <button onclick="location.href='menu'">Back to Menu</button>
+        <button onclick="resetTree()">Reset Tree</button>
+    </div>
+</div>
+
+<div class="input-container">
+    <input type="number" id="numberInput" placeholder="Enter a number">
+    <button onclick="addNumber()">Add Number</button>
+</div>
+
+<!-- Container for the binary tree visualization -->
+<div class="tree-container" id="treeContainer"></div>
+
+<script>
+    // Node class: Represents each node in the binary search tree
+    class Node {
+        constructor(value) {
+            this.value = value;     // Value stored in the node
+            this.left = null;       // Reference to left child node
+            this.right = null;      // Reference to right child node
+        }
+    }
+
+    // BinarySearchTree class: Manages the tree structure and operations
+    class BinarySearchTree {
+        constructor() {
+            this.root = null;  // Initialize tree with no root node
+        }
+
+        // Method to insert a new value into the tree
+        insert(value) {
+            const newNode = new Node(value);  // Create a new node with the given value
+
+            if (this.root === null) {
+                this.root = newNode;  // If tree is empty, the new node becomes root
+                return;
+            }
+
+            this.insertNode(this.root, newNode);  // Insert node in correct position
+        }
+
+        // Helper method to recursively insert nodes following Binary Search Tree rules
+        insertNode(node, newNode) {
+            if (newNode.value < node.value) {  // If new value is less than current node
+                if (node.left === null) {
+                    node.left = newNode;  // If no left child exists, insert here
+                } else {
+                    this.insertNode(node.left, newNode);  // Continue search in left subtree
+                }
+            } else {  // If new value is greater than or equal to current node
+                if (node.right === null) {
+                    node.right = newNode;  // If no right child exists, insert here
+                } else {
+                    this.insertNode(node.right, newNode);  // Continue search in right subtree
+                }
+            }
+        }
+    }
+
+    // Function to create the visual representation of a node with connecting lines
+    function createNodeElement(node, hasParent = false) {
+        // Create main node container
+        const nodeDiv = document.createElement('div');
+        nodeDiv.className = 'node';
+
+        // Add vertical line to parent if this node has a parent
+        if (hasParent) {
+            const line = document.createElement('div');
+            line.className = 'line';
+            nodeDiv.appendChild(line);
+        }
+
+        // Create the circle container that holds the node value
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'node-content';
+        contentDiv.textContent = node.value;
+        nodeDiv.appendChild(contentDiv);
+
+        // Create container for child nodes
+        const childrenDiv = document.createElement('div');
+        childrenDiv.className = 'node-children';
+
+        // Add connecting lines to children if they exist
+        if (node.left || node.right) {
+            // Add line to left child if it exists
+            if (node.left) {
+                const leftLine = document.createElement('div');
+                leftLine.className = 'line-left';
+                childrenDiv.appendChild(leftLine);
+            }
+            // Add line to right child if it exists
+            if (node.right) {
+                const rightLine = document.createElement('div');
+                rightLine.className = 'line-right';
+                childrenDiv.appendChild(rightLine);
+            }
+        }
+
+        nodeDiv.appendChild(childrenDiv);
+        return nodeDiv;
+    }
+
+    // Recursive function to visualize the entire tree structure
+    function visualizeTree(node, hasParent = false) {
+        if (!node) return null;  // Base case: if node doesn't exist, return null
+
+        // Create visual element for current node
+        const nodeElement = createNodeElement(node, hasParent);
+        const childrenContainer = nodeElement.querySelector('.node-children');
+
+        // Recursively visualize left and right subtrees
+        if (node.left) {
+            childrenContainer.appendChild(visualizeTree(node.left, true));
+        }
+        if (node.right) {
+            childrenContainer.appendChild(visualizeTree(node.right, true));
+        }
+
+        return nodeElement;
+    }
+
+    // Initialize the binary search tree
+    let bst = new BinarySearchTree();
+
+    // Function to add a new number to the tree from user input
+    function addNumber() {
+        const input = document.getElementById('numberInput');
+        const value = parseInt(input.value);
+
+        if (!isNaN(value)) {  // Validate that input is a valid number
+            bst.insert(value);  // Insert the value into the tree
+            updateTreeVisualization();  // Update the visual representation
+            input.value = '';  // Clear the input field
+        } else {
+            alert('Please enter a valid number');
+        }
+    }
+
+    // Function to update the tree visualization in the DOM
+    function updateTreeVisualization() {
+        const container = document.getElementById('treeContainer');
+        container.innerHTML = '';  // Clear the container
+        if (bst.root) {
+            container.appendChild(visualizeTree(bst.root));  // Visualize tree from root
+        }
+    }
+
+    // Function to reset the tree to empty state
+    function resetTree() {
+        bst = new BinarySearchTree();  // Create a new empty tree
+        updateTreeVisualization();  // Update the visualization to show empty state
+    }
+
+    // Event listener for Enter key in input field
+    document.getElementById('numberInput').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            addNumber();  // Call addNumber when Enter key is pressed
+        }
+    });
+</script>
+</body>
+</html>
