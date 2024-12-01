@@ -1,7 +1,8 @@
+------------------------------------------------------------------
 🌳 Interactive Binary Tree Visualizer 🖥️
-
+------------------------------------------------------------------
 🚀 Proyecto de Visualización de Árboles Binarios
-
+------------------------------------------------------------------
 📝 Descripción
 Una aplicación web interactiva que permite a los usuarios crear y visualizar árboles binarios de manera gráfica y dinámica. Diseñada para ayudar a estudiantes y entusiastas de la programación a comprender mejor la estructura y comportamiento de los árboles binarios.
 🛠️ Tecnologías Utilizadas
@@ -13,6 +14,7 @@ Una aplicación web interactiva que permite a los usuarios crear y visualizar á
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
 </p>
+------------------------------------------------------------------
 ✨ Características Principales
 
 🔐 Sistema de Autenticación Seguro
@@ -33,20 +35,21 @@ Representación visual inmediata de cambios en la estructura del árbol
 Backend robusto con Spring Boot
 Frontend dinámico con JavaScript
 Diseño responsivo y moderno
-
+------------------------------------------------------------------
 🚀 Instalación y Configuración
 
 Clona el repositorio
 
-bashCopygit clone https://github.com/tu-usuario/binary-tree-visualizer.git
+bash
+Copygit clone https://github.com/tu-usuario/binary-tree-visualizer.git
 cd binary-tree-visualizer
 
 Configura la base de datos
 
 Modifica application.properties con tus credenciales
 
-
 Construye y ejecuta la aplicación
 
-bashCopy./mvnw clean install
+bash
+Copy./mvnw clean install
 ./mvnw spring-boot:run
