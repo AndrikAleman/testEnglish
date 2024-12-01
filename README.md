@@ -50,7 +50,8 @@ Diseño responsivo y moderno
 Clona el repositorio
 
 bash
-Copygit clone https://github.com/tu-usuario/binary-tree-visualizer.git
+
+Copygit clone [https://github.com/tu-usuario/binary-tree-visualizer.git](https://github.com/AndrikAleman/testEnglish.git)
 cd binary-tree-visualizer
 
 Configura la base de datos
@@ -60,5 +61,6 @@ Modifica application.properties con tus credenciales
 Construye y ejecuta la aplicación
 
 bash
+
 Copy./mvnw clean install
 ./mvnw spring-boot:run
